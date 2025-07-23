@@ -3,6 +3,8 @@ const WebSocket = require('ws');
 const HA_WS = 'ws://homeassistant:8123/api/websocket';
 const TOKEN = process.env.HA_TOKEN;
 
+console.log(process.env);
+
 const ws = new WebSocket(HA_WS);
 
 console.log('[STARTUP] Power Optimizer add-on started.');
