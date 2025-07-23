@@ -6,12 +6,31 @@
   "startup": "application",
   "boot": "auto",
   "options": {
-    "HA_TOKEN": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN"
+    "HA_TOKEN": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN",
+    "SEN_SOLAR_P": "sensor.solar_power",
+    "SEN_BATTERY_SOC": "sensor.battery_SOC"
   },
   "schema": {
-    "HA_TOKEN": "str"
+    "HA_TOKEN": "str",
+    "SEN_SOLAR_P":
+    {
+      "type": "select",
+      "options": [
+        "POWER"
+      ],
+      "default": "sensor.solar_power",
+      "description": "Select the solar power sensor"
+    },
+    "SEN_BATTERY_SOC":
+    {
+      "type": "select",
+      "options": [
+        "BATTERY"
+      ],
+      "default": "sensor.solar_power",
+      "description": "Select the solar power sensor"
+    }
   },
   "arch": ["amd64", "aarch64", "armv7"],
   "host_network": true
 }
-
