@@ -1,7 +1,7 @@
 {
   "name": "Power Optimizer",
   "version": "1.0.0",
-  "slug": "HA_PowerOptimization",
+  "slug": "ha_power_optimization",
   "description": "Smart switching between DC and AC fridge based on battery SOC and solar production.",
   "startup": "application",
   "boot": "auto",
