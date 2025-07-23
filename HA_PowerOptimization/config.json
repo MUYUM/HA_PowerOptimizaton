@@ -7,13 +7,15 @@
   "boot": "auto",
   "options": {
     "HA_TOKEN": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN",
-    "solar_device_class": "power",
-    "soc_device_class": "battery"
+    "SEN_SOLAR_P": "power",
+    "SEN_BATTERY_SOC": "battery",
+    "SEN_BATTERY_SOC2": "battery"
   },
   "schema": {
     "HA_TOKEN": "str",
     "SEN_SOLAR_P":"str",
-    "SEN_BATTERY_SOC":"str"
+    "SEN_BATTERY_SOC":"str",
+    "SEN_BATTERY_SOC2":"str"
   },
   "arch": ["amd64", "aarch64", "armv7"],
   "host_network": true
