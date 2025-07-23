@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 
-const HA_WS = 'ws://host.docker.internal:8123/api/websocket';
+const HA_WS = 'ws://homeassistant:8123/api/websocket';
 const TOKEN = process.env.HA_TOKEN;
 
 const ws = new WebSocket(HA_WS);
@@ -28,4 +28,6 @@ ws.on('message', async (data) => {
     
     console.log(msg);
   }
+
+  console.log(msg);
 });
