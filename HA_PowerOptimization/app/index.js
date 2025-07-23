@@ -5,6 +5,8 @@ const TOKEN = process.env.HA_TOKEN;
 
 const ws = new WebSocket(HA_WS);
 
+console.log('[STARTUP] Power Optimizer add-on started.');
+
 ws.on('open', () => {
     console.log('Connected to Home Assistant WebSocket');
   ws.send(JSON.stringify({ type: 'auth', access_token: TOKEN }));
