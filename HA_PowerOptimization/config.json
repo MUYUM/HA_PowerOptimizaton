@@ -1,28 +1,16 @@
 {
-  "name": "Power Optimizer",
+  "name": "Power Optimization Add-on",
   "version": "1.0.0",
-  "slug": "ha_power_optimization",
-  "description": "Smart switching between DC and AC fridge based on battery SOC and solar production.",
-  "startup": "application",
+  "slug": "power_optimization",
+  "description": "Optimize fridge power based on solar and battery",
+  "arch": ["armv7", "arm64", "amd64", "i386"],
+  "startup": "services",
   "boot": "auto",
   "options": {
-    "HA_TOKEN": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN",
-    "solar_device_class": "power",
-    "soc_device_class": "battery"
+    "soc_device_class": "battery",
+    "enable_debug": false
   },
   "schema": {
-    "HA_TOKEN": "str",
-    "solar_device_class": {
-      "type": "select",
-      "options": [
-        "power",
-        "energy",
-        "voltage",
-        "current"
-      ],
-      "default": "power",
-      "description": "Select the device class for solar sensor"
-    },
     "soc_device_class": {
       "type": "select",
       "options": [
@@ -33,8 +21,11 @@
       ],
       "default": "battery",
       "description": "Select the device class for battery SOC sensor"
+    },
+    "enable_debug": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable debug logging"
     }
-  },
-  "arch": ["amd64", "aarch64", "armv7"],
-  "host_network": true
+  }
 }
