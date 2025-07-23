@@ -12,24 +12,8 @@
   },
   "schema": {
     "HA_TOKEN": "str",
-    "SEN_SOLAR_P":
-    {
-      "type": "select",
-      "options": [
-        "POWER"
-      ],
-      "default": "sensor.solar_power",
-      "description": "Select the solar power sensor"
-    },
-    "SEN_BATTERY_SOC":
-    {
-      "type": "select",
-      "options": [
-        "BATTERY"
-      ],
-      "default": "sensor.solar_power",
-      "description": "Select the solar power sensor"
-    }
+    "SEN_SOLAR_P":"str",
+    "SEN_BATTERY_SOC":"str"
   },
   "arch": ["amd64", "aarch64", "armv7"],
   "host_network": true
