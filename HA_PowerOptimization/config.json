@@ -6,10 +6,10 @@
   "startup": "application",
   "boot": "auto",
   "options": {
-    "ha_token": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN"
+    "HA_TOKEN": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN"
   },
   "schema": {
-    "ha_token": "str"
+    "HA_TOKEN": "str"
   },
   "arch": ["amd64", "aarch64", "armv7"],
   "host_network": true
