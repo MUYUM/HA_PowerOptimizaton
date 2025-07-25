@@ -8,18 +8,12 @@
   "options": {
     "HA_TOKEN": "REPLACE_ME_WITH_YOUR_LONG_LIVED_ACCESS_TOKEN",
     "SEN_SOLAR_P": "power",
-    "SEN_BATTERY_SOC": "battery222",
-    "enable_debug": false
+    "SEN_BATTERY_SOC": "battery"
   },
   "schema": {
     "HA_TOKEN": "str",
     "SEN_SOLAR_P":"str",
-    "SEN_BATTERY_SOC":"str",
-    "enable_debug": {
-      "type": "boolean",
-      "default": false,
-      "description": "Enable debug logging"
-    }
+    "SEN_BATTERY_SOC":"str"
   },
   "arch": ["amd64", "aarch64", "armv7"],
   "host_network": true
