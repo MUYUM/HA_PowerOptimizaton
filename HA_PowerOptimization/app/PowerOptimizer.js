@@ -15,7 +15,7 @@ class PowerOptimizer
         this.ConnectorHA.registerComponent(this.PowerMeter);
         this.ConnectorHA.registerComponent(this.Battery);
 
-        setInterval(this.calulateTimeRemaining.bind(this), 1000);
+        // setInterval(this.calulateTimeRemaining.bind(this), 1000);
     }
 
     calulateTimeRemaining()

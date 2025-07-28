@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations":
+    [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "app/index.js",
+            "env":
+            {
+                "HA_API": "http://*.*.*.*:8123/api",
+                "HA_WS": "ws://*.*.*.*:8123/api/websocket",
+                "HA_TOKEN": "*"
+            }
+        }
+    ]
+}
