@@ -2,7 +2,7 @@ const WebSocket = require('ws');
 const EventEmitter = require('events');
 const axios = require('axios');
 
-const Battery = require('./battery.js');
+const Battery = require('./Battery.js');
 const PowerMeter = require('./powerMeter.js');
 
 class Measurment
@@ -60,24 +60,6 @@ class Connector
                 });
             }
         });
-
-        setInterval(() =>
-        {
-            // console.log('Sending command to turn on the water heater');
-            // this.ws.send(JSON.stringify(
-            // {
-            //     id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
-            //     type: 'call_service',
-            //     domain: 'switch',
-            //     service: 'turn_on',
-            //     service_data: {
-            //         entity_id: 'switch.relaymodule10_01_water_heater'
-            //     }
-            // }));
-
-            this.Switch('switch.relaymodule10_01_water_heater', 'on');
-
-        }, 1000);
     }
 
     async Switch(UID, STA)
@@ -104,6 +86,28 @@ class Connector
         .catch((error) =>
         {
             console.error(error);
+        });
+    }
+
+    RegisterSensor(UID, SetValue)
+    {
+        this.event.on('measurement', (msg) =>
+        {
+            if(msg.name === UID)
+            {
+                SetValue(msg.value);
+            }
+        });
+    }
+
+    RegisterSwitch(UID, GetValue)
+    {
+        GetValue.on('status', (Value) =>
+        {
+            this.Switch(UID, Value === "S1" ? 'on' : 'off').then(() =>
+            {
+                console.log(`Switch ${UID} set to ${Value}`);
+            });
         });
     }
 

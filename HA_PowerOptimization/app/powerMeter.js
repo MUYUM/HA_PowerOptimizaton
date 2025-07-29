@@ -1,20 +1,29 @@
+
+
 class PowerMeter
 {
-    constructor(sensor)
+    constructor(UID)
     {
-        this.sensor = sensor;
-        this.current = 0; // Amps
+        this.UID = UID;
+
+        this.SensorCurrent = 0;
+        this.SensorVoltage = 0;
+
+        // setInterval(() => this.Print(), 1000);
     }
 
-    setCurrent(current)
-    {
-        this.current = current;
-    }
+    SetSensorCurrent(X) { this.SensorCurrent = parseFloat(X); }
+    SetSensorVoltage(X) { this.SensorVoltage = parseFloat(X); }
 
-    getCurrent()
+    GetPower() { return this.SensorCurrent * this.SensorVoltage; }
+    GetVoltage() { return this.SensorVoltage; }
+    GetCurrent() { return this.SensorCurrent; }
+
+    Print()
     {
-        return this.current;
+        console.log(`PowerMeter: Current: ${this.SensorCurrent} A, Power: ${this.GetPower()}`);
     }
 }
 
 module.exports = PowerMeter;
+
