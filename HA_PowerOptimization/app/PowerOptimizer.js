@@ -2,8 +2,8 @@ const { Battery12V100Ah } = require('./Battery.js');
 const PowerMeter = require('./powerMeter.js');
 const ConnectorHA = require('./ConnectorHA.js');
 const BatteryPool = require('./BatteryPool.js');
-const Inverter = require('./inverter.js');
-const WaterHeater = require('./waterHeater.js');
+const Inverter = require('./Devices/Inverter.js');
+const WaterHeater = require('./Devices/WaterHeater.js');
 
 class PowerOptimizer
 {
@@ -24,6 +24,8 @@ class PowerOptimizer
 
         this.ConnectorHA.RegisterSensor("sensor.esphome_web_2ed7a8_bat1_capacity_remaining", (X) => this.Battery1.SetSensorCurCapacity(X));
         this.ConnectorHA.RegisterSensor("sensor.esphome_web_2ed7a8_bat2_capacity_remaining", (X) => this.Battery2.SetSensorCurCapacity(X));
+        this.ConnectorHA.RegisterSensor("switch.esphome_web_2ed7a8_bat1_charging", (X) => this.Battery1.SetAllowCharging(X));
+        this.ConnectorHA.RegisterSensor("switch.esphome_web_2ed7a8_bat2_charging", (X) => this.Battery2.SetAllowCharging(X));
 
         this.ConnectorHA.RegisterSensor("sensor.esphome_web_33e73c_battery_current_main_shunt", (X) => this.PowerMeter.SetSensorCurrent(X));
         this.ConnectorHA.RegisterSensor("sensor.esphome_web_33e73c_battery_voltage_main_shunt", (X) => this.PowerMeter.SetSensorVoltage(X));
@@ -37,22 +39,9 @@ class PowerOptimizer
 
         this.BatteryPool.addBattery(this.Battery1);
         this.BatteryPool.addBattery(this.Battery2);
-
-        // setInterval(this.calulateTimeRemaining.bind(this), 1000);
     }
 
-    calulateTimeRemaining()
-    {
-        let batteryCapacity = this.Battery.capacity;
-        let powerConsumption = this.PowerMeter.getCurrent();
-        let timeRemaining = batteryCapacity / powerConsumption;
-
-        console.log("Battery Capacity: ", batteryCapacity);
-        console.log("Power Consumption: ", powerConsumption);
-        console.log(`Time remaining: ${timeRemaining} hours`);
-
-        return timeRemaining;
-    }
+    
 
 }
 

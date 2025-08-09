@@ -20,9 +20,8 @@ class WaterHeater
 
     SetStatus(X)
     {
-        if(X === 'ON') { this.status = Status.S1; }
-        if(X === 'OFF') { this.status = Status.S0; }
-        if(X === 'AUTO') { this.status = Status.SA; }
+        if(X === 'ON'  ) { this.status = Status.S1; }
+        if(X === 'OFF' ) { this.status = Status.S0; }
 
         console.log(`WaterHeater ${this.UID} status changed to: ${X}`);
 
